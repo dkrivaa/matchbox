@@ -41,8 +41,7 @@ def results_to_csv(list_of_lists):
 
     # Write the data
     for item in list_of_lists:
-        row = [item[0]] + item[1]
-        writer.writerow(row)
+        writer.writerow(item)
 
     # Get the CSV string from the StringIO object
     csv_string = output.getvalue()
