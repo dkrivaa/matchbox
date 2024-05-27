@@ -14,7 +14,7 @@ def get_file(url):
         data_string = response.content.decode(encoding['encoding'])
         # reading csv string to dataframe
         df = read_csv(data_string)
-        data_list = [[row[0], list(row[1:])] for row in df.itertuples(index=False, name=None)]
+        data_list = [[str(row[0]), list(map(str, row[1:]))] for row in df.itertuples(index=False, name=None)]
         return data_list
 
 
