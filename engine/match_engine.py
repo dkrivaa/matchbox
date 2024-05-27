@@ -3,8 +3,10 @@ import random
 from classes import Lead, Compliment
 
 
-def match():
+def match(lead_list, compliment_list):
     # Getting processed data from user input
+    # lead_data = lead_list
+    # compliment_data = compliment_list
     lead_data = [
         ['lead1', ['comp3', 'comp1', 'comp2']],
         ['lead2', ['comp1', 'comp3', 'comp4']],
@@ -140,10 +142,9 @@ def match():
             if made_couple:
                 break
 
-
-
     print('Result:', couples)
     named_couples = [[x.name for x in sublist] for sublist in couples]
     print('Result:', named_couples)
+    return named_couples
 
 match()
