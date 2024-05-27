@@ -58,7 +58,7 @@ def match(lead_list, compliment_list):
     def make_lead(item_name):
         lead = [x for x in all_leads if x.name == item_name]
         print('lead', lead)
-        return lead[0]
+        return lead
 
     # Function to calculate points
     # if compliment/lead not in lead/compliment prefs - points = 0
