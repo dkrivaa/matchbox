@@ -81,6 +81,7 @@ def match(lead_list, compliment_list):
 
     # Making Compliment prefs into corresponding lead objects and sorting prefs according to points
     for compliment in all_compliments:
+        print('compliment.prefs', compliment.prefs)
         compliment.prefs = [make_lead(x) for x in compliment.prefs]
         compliment.prefs = sorted(compliment.prefs, key=lambda x: calc_points(x, compliment), reverse=True)
 
