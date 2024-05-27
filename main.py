@@ -59,15 +59,13 @@ compliment_url = book.worksheet('match').cell(2,2).value
 lead_list = prepare_data.get_file(lead_url)
 compliment_list = prepare_data.get_file(compliment_url)
 
-print('lead_list', lead_list)
-print('compliment_list', compliment_list)
-# # Check integrity of data
-# checks = prepare_data.data_checks(lead_list, compliment_list)
-# if checks != 'All tests passed':
-#     # here goes code if data NOT OK
-#     pass
-# couples = match_engine.match(lead_list, compliment_list)
-#
+# Check integrity of data
+checks = prepare_data.data_checks(lead_list, compliment_list)
+if checks != 'All tests passed':
+    # here goes code if data NOT OK
+    pass
+couples = match_engine.match(lead_list, compliment_list)
+print(couples)
 # json_result = results_to_json(couples)
 # csv_result = results_to_csv(couples)
 #
