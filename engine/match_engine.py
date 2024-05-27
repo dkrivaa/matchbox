@@ -2,6 +2,7 @@ import random
 
 # from classes import Lead, Compliment
 
+
 class Lead:
 
     def __init__(self, name, prefs=None):
@@ -53,7 +54,7 @@ def match(lead_list, compliment_list):
         compliment = [x for x in all_compliments if x.name == item_name][0]
         return compliment
 
-    # Function to male lead object from name
+    # Function to make lead object from name
     def make_lead(item_name):
         lead = [x for x in all_leads if x.name == item_name][0]
         return lead
@@ -79,6 +80,7 @@ def match(lead_list, compliment_list):
 
     # Making Compliment prefs into corresponding lead objects and sorting prefs according to points
     for compliment in all_compliments:
+        print('compliment.prefs', compliment.prefs)
         compliment.prefs = [make_lead(x) for x in compliment.prefs]
         compliment.prefs = sorted(compliment.prefs, key=lambda x: calc_points(x, compliment), reverse=True)
 
