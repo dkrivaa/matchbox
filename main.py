@@ -52,23 +52,27 @@ def results_to_csv(list_of_lists):
 
 # Getting urls from Google sheet
 book = openGoogle()
-lead_url = book.worksheet('match').cell(1,2).value
+lead_url = book.worksheet('match').cell(2,1).value
 compliment_url = book.worksheet('match').cell(2,2).value
 
-# Making data lists
-lead_list = prepare_data.get_file(lead_url)
-compliment_list = prepare_data.get_file(compliment_url)
+print('lead_url', lead_url)
+print('compliment_url', compliment_url)
 
-# Check integrity of data
-checks = prepare_data.data_checks(lead_list, compliment_list)
-if checks != 'All tests passed':
-    # here goes code if data NOT OK
-    pass
-couples = match_engine.match(lead_list, compliment_list)
 
-json_result = results_to_json(couples)
-csv_result = results_to_csv(couples)
-
-book.worksheet('match').update_cell(3,2, csv_result)
-book.worksheet('match').update_cell(4,2,json_result)
-
+# # Making data lists
+# lead_list = prepare_data.get_file(lead_url)
+# compliment_list = prepare_data.get_file(compliment_url)
+#
+# # Check integrity of data
+# checks = prepare_data.data_checks(lead_list, compliment_list)
+# if checks != 'All tests passed':
+#     # here goes code if data NOT OK
+#     pass
+# couples = match_engine.match(lead_list, compliment_list)
+#
+# json_result = results_to_json(couples)
+# csv_result = results_to_csv(couples)
+#
+# book.worksheet('match').update_cell(4,1, csv_result)
+# book.worksheet('match').update_cell(4,2,json_result)
+#
