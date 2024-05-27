@@ -54,7 +54,7 @@ def results_to_csv(list_of_lists):
 book = openGoogle()
 lead_url = book.worksheet('match').cell(1,2).value
 compliment_url = book.worksheet('match').cell(2,2).value
-print(lead_url)
+book.worksheet('match').update_cell(1,3,lead_url)
 # # Making data lists
 # lead_list = prepare_data.get_file(lead_url)
 # compliment_list = prepare_data.get_file(compliment_url)
