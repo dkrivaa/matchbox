@@ -47,6 +47,7 @@ def match(lead_list, compliment_list):
 
     # Making Lead and Compliment objects from data
     all_leads = [Lead(x, prefs) for [x, prefs] in lead_data]
+    print('all_leads', all_leads)
     all_compliments = [Compliment(x, prefs) for [x, prefs] in compliment_data]
 
     # Function to make compliment object from name
@@ -56,8 +57,7 @@ def match(lead_list, compliment_list):
 
     # Function to make lead object from name
     def make_lead(item_name):
-        lead = [x for x in all_leads if x.name == item_name]
-        print('lead', lead)
+        lead = [x for x in all_leads if x.name == item_name][0]
         return lead
 
     # Function to calculate points
@@ -81,7 +81,6 @@ def match(lead_list, compliment_list):
 
     # Making Compliment prefs into corresponding lead objects and sorting prefs according to points
     for compliment in all_compliments:
-        print('compliment.prefs', compliment.prefs)
         compliment.prefs = [make_lead(x) for x in compliment.prefs]
         compliment.prefs = sorted(compliment.prefs, key=lambda x: calc_points(x, compliment), reverse=True)
 
