@@ -10,6 +10,7 @@ from data import prepare_data
 from engine import match_engine
 
 
+# open google sheet 'googleIntegrator'
 def openGoogle():
     credentials_json_string = os.environ.get('credentials_json_string')
     credentials_json = json.loads(base64.b64decode(credentials_json_string))
@@ -21,6 +22,8 @@ def openGoogle():
     client = gspread.authorize(creds)
 
     book = client.open_by_key(sheet_id)
+
+    return book
 
 
 def results_to_json(list_of_lists):
@@ -48,9 +51,9 @@ def results_to_csv(list_of_lists):
 
 
 # Getting urls from Google sheet
-
-lead_url =
-compliment_url =
+book = openGoogle()
+lead_url = book.worksheet('match').cell(1,2).value
+compliment_url = book.worksheet('match').cell(2,2).value
 
 # Making data lists
 lead_list = prepare_data.get_file(lead_url)
@@ -60,7 +63,7 @@ compliment_list = prepare_data.get_file(compliment_url)
 checks = prepare_data.data_checks(lead_list, compliment_list)
 if checks != 'All tests passed':
     # here goes code if data NOT OK
-
+    pass
 couples = match_engine.match(lead_list, compliment_list)
 
 json_result = results_to_json(couples)
