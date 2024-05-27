@@ -47,7 +47,7 @@ def match(lead_list, compliment_list):
 
     # Making Lead and Compliment objects from data
     all_leads = [Lead(x, prefs) for [x, prefs] in lead_data]
-    print('all_leads', all_leads)
+    print('all_leads names', [x.name for x in all_leads])
     all_compliments = [Compliment(x, prefs) for [x, prefs] in compliment_data]
 
     # Function to make compliment object from name
