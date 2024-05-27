@@ -55,14 +55,12 @@ book = openGoogle()
 lead_url = book.worksheet('match').cell(2,1).value
 compliment_url = book.worksheet('match').cell(2,2).value
 
-print('lead_url', lead_url)
-print('compliment_url', compliment_url)
+# Making data lists
+lead_list = prepare_data.get_file(lead_url)
+compliment_list = prepare_data.get_file(compliment_url)
 
-
-# # Making data lists
-# lead_list = prepare_data.get_file(lead_url)
-# compliment_list = prepare_data.get_file(compliment_url)
-#
+print('lead_list', lead_list)
+print('compliment_list', compliment_list)
 # # Check integrity of data
 # checks = prepare_data.data_checks(lead_list, compliment_list)
 # if checks != 'All tests passed':
