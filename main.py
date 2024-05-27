@@ -69,3 +69,6 @@ couples = match_engine.match(lead_list, compliment_list)
 json_result = results_to_json(couples)
 csv_result = results_to_csv(couples)
 
+book.worksheet('match').update_cell(3,2, csv_result)
+book.worksheet('match').update_cell(4,2,json_result)
+
