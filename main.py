@@ -68,6 +68,6 @@ print(couples)
 json_result = results_to_json(couples)
 csv_result = results_to_csv(couples)
 
-book.worksheet('match').update_cell(4,1, csv_result)
-book.worksheet('match').update_cell(4,2,json_result)
+book.worksheet('match').update_cell(2,3, csv_result)
+book.worksheet('match').update_cell(2,4,json_result)
 
