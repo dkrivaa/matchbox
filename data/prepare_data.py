@@ -46,9 +46,6 @@ def data_checks(lead_list, compliment_list):
     leads = [x[0] for x in lead_list]
     compliments = [y[0] for y in compliment_list]
     # lead names
-    print('compliment_list', compliment_list)
-    print('leads', leads)
-    print(any(any(x in leads for x in sublist[1]) for sublist in compliment_list))
     if any(any(x in leads for x in sublist[1]) for sublist in compliment_list):
         pass
     else:
