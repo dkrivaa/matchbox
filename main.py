@@ -64,7 +64,7 @@ if checks != 'All tests passed':
     # here goes code if data NOT OK
     # making json string of error message
     # THIS NEEDS MORE WORK
-    json_string = json.dumps([{'error': 'problem'}], indent=4)
+    json_string = json.dumps([{'error': checks}], indent=4)
     book.worksheet('match').update_cell(2, 4, json_string)
 
 else:
