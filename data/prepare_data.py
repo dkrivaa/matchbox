@@ -48,6 +48,7 @@ def data_checks(lead_list, compliment_list):
     # lead names
     print('compliment_list', compliment_list)
     print('leads', leads)
+    print([[[str(x) for x in sublist[1]] for sublist in compliment_list] in leads])
     if [[[str(x) for x in sublist[1]] for sublist in compliment_list] in leads][0]:
         pass
     else:
