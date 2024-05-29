@@ -66,11 +66,13 @@ if checks != 'All tests passed':
     # THIS NEEDS MORE WORK
     json_string = json.dumps([{'error': 'problem'}], indent=4)
     book.worksheet('match').update_cell(2, 4, json_string)
-couples = match_engine.match(lead_list, compliment_list)
-print(couples)
-json_result = results_to_json(couples)
-csv_result = results_to_csv(couples)
 
-book.worksheet('match').update_cell(2,3, csv_result)
-book.worksheet('match').update_cell(2,4,json_result)
+else:
+    couples = match_engine.match(lead_list, compliment_list)
+    print(couples)
+    json_result = results_to_json(couples)
+    csv_result = results_to_csv(couples)
+
+    book.worksheet('match').update_cell(2,3, csv_result)
+    book.worksheet('match').update_cell(2,4,json_result)
 
