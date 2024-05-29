@@ -48,13 +48,13 @@ def data_checks(lead_list, compliment_list):
     # lead names
     print('compliment_list', compliment_list)
     print('leads', leads)
-    print([[[str(x) for x in sublist[1]] for sublist in compliment_list] in leads])
-    if [[[str(x) for x in sublist[1]] for sublist in compliment_list] in leads][0]:
+    print(any(any(x in leads for x in sublist[1]) for sublist in compliment_list))
+    if any(any(x in leads for x in sublist[1]) for sublist in compliment_list):
         pass
     else:
         return 'ERROR - Prefs in compliments are not consistent with lead names'
     # compliment names
-    if [[[str(x) for x in sublist[1]] for sublist in lead_list] in compliments][0]:
+    if any(any(x in compliments for x in sublist[1]) for sublist in lead_list):
         pass
     else:
         return 'ERROR - Prefs in leads are not consistent with compliment names'
