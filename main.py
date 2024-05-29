@@ -62,6 +62,8 @@ compliment_list = prepare_data.get_file(compliment_url)
 checks = prepare_data.data_checks(lead_list, compliment_list)
 if checks != 'All tests passed':
     # here goes code if data NOT OK
+    # making json string of error message
+    # THIS NEEDS MORE WORK
     json_string = json.dumps([{'error': 'problem'}], indent=4)
     book.worksheet('match').update_cell(2, 4, json_string)
 couples = match_engine.match(lead_list, compliment_list)
