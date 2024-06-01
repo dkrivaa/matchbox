@@ -18,6 +18,7 @@ def openGoogle():
 
     # Collect all environment variables that start with 'param'
     params = {key: os.environ[key] for key in os.environ if key.startswith('param')}
+    print(params)
 
     scopes = ["https://www.googleapis.com/auth/spreadsheets"]
 
@@ -53,7 +54,7 @@ def results_to_csv(list_of_lists):
 
 
 # Getting urls from Google sheet
-book = openGoogle()
+book, params = openGoogle()
 lead_url = book.worksheet('match').cell(2,1).value
 compliment_url = book.worksheet('match').cell(2,2).value
 
