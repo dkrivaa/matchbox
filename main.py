@@ -71,7 +71,6 @@ if checks != 'All tests passed':
 
 else:
     couples, lead_summary, compliment_summary = match_engine.match(lead_list, compliment_list)
-    print(couples)
     json_result = results_to_json(couples)
     csv_result = results_to_csv(couples)
 
