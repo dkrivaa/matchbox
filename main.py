@@ -55,8 +55,11 @@ def results_to_csv(list_of_lists):
 
 # Getting urls from Google sheet
 book, params = openGoogle()
-lead_url = book.worksheet('match').cell(2,1).value
-compliment_url = book.worksheet('match').cell(2,2).value
+lead_url = params['param0']
+compliment_url = params['param1']
+
+# lead_url = book.worksheet('match').cell(2,1).value
+# compliment_url = book.worksheet('match').cell(2,2).value
 
 # Making data lists
 lead_list = prepare_data.get_file(lead_url)
