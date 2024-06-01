@@ -146,29 +146,30 @@ def match(lead_list, compliment_list):
 
     # Getting summary data
     # lead:
-    def count_occurrences(list1, list2):
+    def count_occurrences_lead(list1, list2):
         count = 0
         for item1 in list1:
             for sublist in list2:
                 if sublist[0] == item1[0]:
-                    print(f"Comparing {item1[1]} in {sublist[1]}")
                     if item1[1] in sublist[1]:
-                        print(f"Match found for {item1[1]} in {sublist[1]}")
                         count += 1
         return count
 
-    # def count_occurrences(list1, list2):
-    #     return sum(item1[1] in [sublist[1] for sublist in list2 if sublist[0] == item1[0]] for item1 in list1)
-
     # Getting lead summary
-    lead_summary = [count_occurrences(named_couples, lead_list), len(lead_list)]
+    lead_summary = [count_occurrences_lead(named_couples, lead_list), len(lead_list)]
 
     # compliment:
-    def count_occurrences(list1, list2):
-        return sum(item1[0] in [sublist[1] for sublist in list2 if sublist[0] == item1[1]] for item1 in list1)
+    def count_occurrences_compliment(list1, list2):
+        count = 0
+        for item1 in list1:
+            for sublist in list2:
+                if sublist[0] == item1[1]:
+                    if item1[0] in sublist[1]:
+                        count += 1
+        return count
 
-    # Getting lead summary
-    compliment_summary = [count_occurrences(named_couples, compliment_list), len(compliment_list)]
+    # Getting compliment summary
+    compliment_summary = [count_occurrences_compliment(named_couples, compliment_list), len(compliment_list)]
 
     return named_couples, lead_summary, compliment_summary
 
