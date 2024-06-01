@@ -77,7 +77,9 @@ else:
 
     book.worksheet('match').update_cell(2,3, csv_result)
     book.worksheet('match').update_cell(2,4,json_result)
+    book.worksheet('match').update_cell(4, 4, lead_summary[0])
+    book.worksheet('match').update_cell(5, 4, lead_summary[1])
+    book.worksheet('match').update_cell(4, 5, compliment_summary[0])
+    book.worksheet('match').update_cell(5, 5, compliment_summary[1])
 
-    print('lead_summary', lead_summary)
-    print('lead list', lead_list)
-    print('compliment_summary', compliment_summary)
+
