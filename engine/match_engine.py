@@ -27,23 +27,6 @@ def match(lead_list, compliment_list):
     # Getting processed data from user input
     lead_data = lead_list
     compliment_data = compliment_list
-    # lead_data = [
-    #     ['lead1', ['comp3', 'comp1', 'comp2']],
-    #     ['lead2', ['comp1', 'comp3', 'comp4']],
-    #     ['lead3', ['comp2', 'comp1', 'comp5']],
-    #     ['lead4', ['comp3', 'comp1', 'comp5']]
-    # ]
-    # compliment_data = [
-    #     ['comp1', ['lead2', 'lead3']],
-    #     ['comp2', ['lead3', 'lead4']],
-    #     ['comp3', ['lead4', 'lead3']],
-    #     ['comp4', ['lead2', 'lead3']],
-    #     ['comp5', ['lead2', 'lead3']],
-    #     ['comp6', ['lead2', 'lead3']],
-    #     ['comp7', ['lead2', 'lead3']],
-    #     ['comp8', ['lead2', 'lead4']],
-    #     ['comp9', ['lead4', 'lead3']],
-    # ]
 
     # Making Lead and Compliment objects from data
     all_leads = [Lead(x, prefs) for [x, prefs] in lead_data]
