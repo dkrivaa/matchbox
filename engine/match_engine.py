@@ -169,7 +169,7 @@ def match(lead_list, compliment_list):
         return count
 
     # Getting compliment summary
-    compliment_summary = [count_occurrences_compliment(named_couples, compliment_list), len(compliment_list)]
+    compliment_summary = [count_occurrences_compliment(named_couples, compliment_list), len(lead_list)]
 
     return named_couples, lead_summary, compliment_summary
 
