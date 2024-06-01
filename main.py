@@ -58,9 +58,6 @@ book, params = openGoogle()
 lead_url = params['param0']
 compliment_url = params['param1']
 
-# lead_url = book.worksheet('match').cell(2,1).value
-# compliment_url = book.worksheet('match').cell(2,2).value
-
 # Making data lists
 lead_list = prepare_data.get_file(lead_url)
 compliment_list = prepare_data.get_file(compliment_url)
