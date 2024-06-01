@@ -18,7 +18,6 @@ def openGoogle():
 
     # Collect all environment variables that start with 'param'
     params = {key: os.environ[key] for key in os.environ if key.startswith('param')}
-    print(params)
 
     scopes = ["https://www.googleapis.com/auth/spreadsheets"]
 
@@ -71,7 +70,7 @@ if checks != 'All tests passed':
     book.worksheet('match').update_cell(2, 4, json_string)
 
 else:
-    couples = match_engine.match(lead_list, compliment_list)
+    couples, lead_summary, compliment_summary = match_engine.match(lead_list, compliment_list)
     print(couples)
     json_result = results_to_json(couples)
     csv_result = results_to_csv(couples)
@@ -79,3 +78,5 @@ else:
     book.worksheet('match').update_cell(2,3, csv_result)
     book.worksheet('match').update_cell(2,4,json_result)
 
+    print('lead_summary', lead_summary)
+    print('compliment_summary', compliment_summary)

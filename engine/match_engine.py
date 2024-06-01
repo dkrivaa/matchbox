@@ -24,13 +24,10 @@ class Compliment:
 
 
 def match(lead_list, compliment_list):
-    # Getting processed data from user input
-    lead_data = lead_list
-    compliment_data = compliment_list
 
     # Making Lead and Compliment objects from data
-    all_leads = [Lead(x, prefs) for [x, prefs] in lead_data]
-    all_compliments = [Compliment(x, prefs) for [x, prefs] in compliment_data]
+    all_leads = [Lead(x, prefs) for [x, prefs] in lead_list]
+    all_compliments = [Compliment(x, prefs) for [x, prefs] in compliment_list]
 
     # Function to make compliment object from name
     def make_compliment(item_name):
@@ -146,5 +143,21 @@ def match(lead_list, compliment_list):
                 break
 
     named_couples = [[x.name for x in sublist] for sublist in couples]
-    return named_couples
+
+    # Getting summary data
+    # lead:
+    def count_occurrences(list1, list2):
+        return sum(item1[1] in [sublist[1] for sublist in list2 if sublist[0] == item1[0]] for item1 in list1)
+
+    # Getting lead summary
+    lead_summary = [count_occurrences(named_couples, lead_list), len(lead_list)]
+
+    # compliment:
+    def count_occurrences(list1, list2):
+        return sum(item1[0] in [sublist[1] for sublist in list2 if sublist[0] == item1[1]] for item1 in list1)
+
+    # Getting lead summary
+    compliment_summary = [count_occurrences(named_couples, compliment_list), len(compliment_list)]
+
+    return named_couples, lead_summary, compliment_summary
 
