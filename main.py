@@ -79,4 +79,5 @@ else:
     book.worksheet('match').update_cell(2,4,json_result)
 
     print('lead_summary', lead_summary)
+    print('lead list', lead_list)
     print('compliment_summary', compliment_summary)
