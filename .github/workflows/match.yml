@@ -2,6 +2,11 @@ name: match process
 
 on:
   workflow_dispatch:
+    inputs:
+      params_json:
+        description: 'JSON string of parameters'
+        required: true
+        default: '{}'
 
 env:
   # Google sheet secrets
@@ -19,6 +24,23 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.12
+
+      - name: Parse JSON input
+        id: parse_json
+        run: |
+          echo "Parsing JSON input..."
+          echo '${{ github.event.inputs.params_json }}' | jq '.' > input_params.json
+
+      - name: Set environment variables from JSON input
+        id: set_env
+        run: |
+          echo "Setting environment variables..."
+          cat input_params.json
+          for key in $(jq -r 'keys[]' input_params.json); do
+            value=$(jq -r --arg key "$key" '.[$key]' input_params.json)
+            echo "Setting $key=$value"
+            echo "$key=$value" >> $GITHUB_ENV
+          done
 
       - uses: actions/cache@v3
         id: cache

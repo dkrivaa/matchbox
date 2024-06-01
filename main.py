@@ -16,6 +16,9 @@ def openGoogle():
     credentials_json = json.loads(base64.b64decode(credentials_json_string))
     sheet_id = os.environ.get('sheet_id')
 
+    # Collect all environment variables that start with 'param'
+    params = {key: os.environ[key] for key in os.environ if key.startswith('param')}
+
     scopes = ["https://www.googleapis.com/auth/spreadsheets"]
 
     creds = Credentials.from_service_account_info(credentials_json, scopes=scopes)
@@ -23,7 +26,7 @@ def openGoogle():
 
     book = client.open_by_key(sheet_id)
 
-    return book
+    return book, params
 
 
 def results_to_json(list_of_lists):
